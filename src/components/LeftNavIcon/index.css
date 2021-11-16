@@ -1,0 +1,8 @@
+
+.icon{
+    background-color: white;
+    border-radius: 6px;
+    padding: 10px;
+    width: 32px;
+    object-fit: cover;
+}

@@ -1,0 +1,20 @@
+
+.header{
+    background-color: black;
+}
+
+.logo{
+    height: 60px;
+}
+
+.navigation{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 50px;
+    color: white;
+    margin-top: 0px;
+    padding: 10px 50px 10px 10px;
+    margin-bottom: auto;
+}

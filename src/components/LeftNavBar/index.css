@@ -1,0 +1,21 @@
+.LeftNavBar{
+    width: 75px;
+    background-color: black;
+    padding: 369px 0px;
+}
+
+.icons{
+    position: absolute;
+    top: 300px; 
+    left: 10px;
+}
+
+
+.copyright{
+    transform: rotate(-90deg);
+    position: absolute;
+    bottom: 90px;
+    left: -30px;
+    font-size: 0.7em;
+    color: white;
+}

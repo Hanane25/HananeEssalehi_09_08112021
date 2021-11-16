@@ -1,0 +1,29 @@
+
+.Tag{
+    display: flex;
+    justify-content: space-between;
+    background-color: #FBFBFB;
+    padding: 25px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+}
+
+.imgBackground{
+    border-radius: 5px;
+}
+
+.imgBackground img{
+    padding: 15px;
+    
+}
+
+.type{
+    color: #74798C;
+    font-size: 0.8em;
+    margin-top: 5px;
+}
