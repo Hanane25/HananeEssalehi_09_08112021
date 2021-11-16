@@ -1,5 +1,5 @@
-import userAverageSessions from "../datas/userAverageSessions"
-import userMainData from "../datas/userMainData"
+import userAverageSessions from "./datas/userAverageSessions"
+import userMainData from "./datas/userMainData"
 
 
 class APIService {
