@@ -1,0 +1,21 @@
+
+.scoreChart{
+    width: 33%;
+    height: 260px;
+    background-color: #FBFBFB;
+    border-radius: 6px;
+    position: relative;
+}
+
+.score{
+    position: absolute;
+    color: #20253A;
+    font-size: 15px;
+    margin: 0px;
+    top: 20px;
+    left: 15px;
+}
+
+.description{
+    position: absolute;
+}

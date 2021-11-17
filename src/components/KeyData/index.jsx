@@ -28,7 +28,7 @@ class KeyData extends Component {
 
     //Méthode de cycle de vie
     componentDidMount() {
-        this.APIService.getUserData(12, this.userData)
+        this.APIService.getUserData(this.props.userId, this.userData)
     }
 
     userData = (data) => {
@@ -41,6 +41,7 @@ class KeyData extends Component {
     }
 
     render() {
+
         return (
             <div className="rightTags">
 

@@ -1,0 +1,20 @@
+
+.activityChart{
+    /* width: 80%; */
+    height: 270px;
+    background-color: #FBFBFB;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.activityHeader{
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+    margin-bottom: 20px;
+}
+
+.activityData{
+    display: flex;
+}

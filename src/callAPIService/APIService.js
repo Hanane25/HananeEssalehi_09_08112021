@@ -1,5 +1,7 @@
+import userActivity from "./datas/userActivity"
 import userAverageSessions from "./datas/userAverageSessions"
 import userMainData from "./datas/userMainData"
+import userPerformance from "./datas/userPerformance"
 
 
 class APIService {
@@ -27,6 +29,28 @@ class APIService {
                 console.log(result)
                 const user = new userAverageSessions(result.data)
                 AverageSessions(user)
+            })
+    }
+
+    getUserPerformance = (userId, userPerformanceData) => {
+
+        fetch(`http://localhost:3000/user/${userId}/performance`)
+            .then((response) => response.json())
+            .then((result) => {
+                const user = new userPerformance(result.data)
+                userPerformanceData(user)
+
+            })
+    }
+
+    getUserActivity = (userId, userActivityData) => {
+
+        fetch(`http://localhost:3000/user/${userId}/activity`)
+            .then((response) => response.json())
+            .then((result) => {
+                const user = new userActivity(result.data)
+                userActivityData(user)
+
             })
     }
 

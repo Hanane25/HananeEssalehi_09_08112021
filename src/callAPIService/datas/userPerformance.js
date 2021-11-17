@@ -1,10 +1,10 @@
 
 class userPerformance {
 
-    constructor(userId, kind, data) {
-        this.userId = userId;
-        this.kind = kind;
-        this.data = data;
+    constructor(data) {
+
+        this.kind = data.kind;
+        this.datas = data.data;
     }
 }
 

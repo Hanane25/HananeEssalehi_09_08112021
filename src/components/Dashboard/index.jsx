@@ -1,7 +1,13 @@
 import React, { Component } from "react";
+import ActivityChart from "../ActivityChart";
 import AverageSessionsChart from "../AverageSessionsChart";
 
-// import KeyData from "../KeyData";
+import PerformanceChart from "../PerformanceChart";
+import ScoreChart from "../ScoreChart";
+
+import KeyData from "../KeyData";
+import './index.css'
+import DashboardHeader from "../DashboardHeader";
 
 
 
@@ -9,21 +15,24 @@ class Dashboard extends Component {
 
     render() {
 
+        const { userId } = this.props
+
         return (
-            <div>
-                <h1>Bonjour </h1>
-                <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+            <div className='headerMainDashboard'>
+
+                <DashboardHeader userId={userId} />
+
                 <div className="dashboard">
                     <div className="charts">
-                        {/* <ActivityChart /> */}
-                        <div>
-                            <AverageSessionsChart />
-                            {/* <RadarChart />
-                            <KPIChart /> */}
+                        <ActivityChart userId={userId} />
+                        <div className="bottomCharts">
+                            <AverageSessionsChart userId={userId} />
+                            <PerformanceChart userId={userId} />
+                            <ScoreChart userId={userId} />
                         </div>
                     </div>
 
-                    {/* <KeyData /> */}
+                    <KeyData userId={userId} />
 
                 </div>
             </div>

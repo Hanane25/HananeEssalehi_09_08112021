@@ -2,28 +2,23 @@ import React from "react";
 import { Component } from "react";
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import APIService from "../../callAPIService/APIService";
+import './index.css'
 
 class AverageSessionsChart extends Component {
 
     constructor(props) {
-
         super(props);
-
         this.state = {
-
             line: {
                 day: 0,              //x
                 sessionLength: ""    //y
             }
-
         }
-
         this.APIService = new APIService()
-
     }
 
     componentDidMount() {
-        this.APIService.getUserAverageSessions(12, this.AverageSessions)
+        this.APIService.getUserAverageSessions(this.props.userId, this.AverageSessions)
     }
 
     AverageSessions = (data) => {
@@ -66,46 +61,47 @@ class AverageSessionsChart extends Component {
 
     render() {
         return (
-            <div>
-                <h2>Durée moyenne des sessions</h2>
+            <div className='averageSessionsChart'>
+                <p className='title'>Durée moyenne des <br />sessions</p>
 
-                <ResponsiveContainer >
+                <ResponsiveContainer width='100%' height='100%'>
 
                     <LineChart
                         width={250}
-                        height={130}
+                        height={200}
 
                         margin={{
                             top: 5,
-                            right: 10,
+                            right: 20,
                             left: 20,
                             bottom: 5,
                         }}
 
-                        data={[
-                            { day: 1, sessionLength: 10 },
-                            { day: 2, sessionLength: 20 },
-                            { day: 3, sessionLength: 10 },
-                            { day: 4, sessionLength: 10 },
-                            { day: 5, sessionLength: 10 },
-                            { day: 6, sessionLength: 10 },
-                            { day: 7, sessionLength: 10 },
-                        ]
+                        // data={[
+                        //     { day: 1, sessionLength: 10 },
+                        //     { day: 2, sessionLength: 20 },
+                        //     { day: 3, sessionLength: 10 },
+                        //     { day: 4, sessionLength: 10 },
+                        //     { day: 5, sessionLength: 10 },
+                        //     { day: 6, sessionLength: 10 },
+                        //     { day: 7, sessionLength: 10 },
+                        // ]}
 
-                        }
+                        data={this.state.line}
                     >
 
                         <XAxis
-                            dataKey="day"
+                            dataKey={this.getXAxis}
                             stroke="white"
                             axisLine={false}
-                            tickFormatter={this.getXAxis} />
+                            tickLine={false}
+                        />
 
                         <YAxis
                             dataKey="sessionLength"
                             hide={true}
                             type="number"
-                            domain={['dataMin', 'dataMax']} />
+                            domain={["dataMin -10", "dataMax +30"]} />
 
 
                         <Tooltip content={<CustomizedTooltip />} />
@@ -113,10 +109,12 @@ class AverageSessionsChart extends Component {
                         <Line
                             type="monotone"
                             stroke="white"
+                            strokeWidth={2}
                             dataKey="sessionLength"
                             dot={false}
                             activeDot={{
                                 stroke: "white",
+                                strokeWidth: 9,
                                 r: "5"
                             }} />
 
@@ -135,8 +133,7 @@ const CustomizedTooltip = ({ payload, active }) => {  //payload: The source data
     if (active) {
         return (
             <div>
-                {`${payload} min`}
-                {console.log('testA')}
+                {`${payload[0].value} min`}
             </div>
         )
     }

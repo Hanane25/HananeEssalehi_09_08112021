@@ -3,8 +3,7 @@ class userActivity {
 
     constructor(data) {
 
-        this.userId = data.userId;
-        this.sessions = data.sessions;
+        this.session = data.sessions
 
     }
 }

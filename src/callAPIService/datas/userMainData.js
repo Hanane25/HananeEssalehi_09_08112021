@@ -3,8 +3,8 @@ class userMainData {
 
     constructor(data) {
 
-        this.name = data.userInfos.firstName
-        this.todayScore = data.todayScore
+        this.firstName = data.userInfos.firstName
+        this.todayScore = data.todayScore || data.score
         this.calorieCount = data.keyData.calorieCount
         this.proteinCount = data.keyData.proteinCount
         this.carbohydrateCount = data.keyData.carbohydrateCount

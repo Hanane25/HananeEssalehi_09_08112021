@@ -6,6 +6,9 @@ import './index.css'
 
 class UserPage extends Component {
     render() {
+
+        const { userId } = this.props.match.params
+
         return (
             <>
                 <Header />
@@ -13,8 +16,7 @@ class UserPage extends Component {
                 <main className='main'>
                     <LeftNavBar />
 
-                    <Dashboard />
-
+                    <Dashboard userId={userId} />
                 </main>
             </>
         )
