@@ -1,8 +1,15 @@
-import React from "react";
-import { Component } from "react";
-import './index.css'
+//React
+import React, { Component } from "react";
 import PropTypes from 'prop-types';
 
+//Styles
+import './index.css'
+
+
+/**
+ * Display icone of the lef navigation
+ * @returns {Component}      div of icons
+ */
 class LeftNavIcon extends Component {
     render() {
 

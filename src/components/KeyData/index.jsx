@@ -1,14 +1,21 @@
+//React
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
+
+//Component
 import RightTag from "../RightTag";
+
+//Assets
 import energy from '../../assets/energy.png'
 import chicken from '../../assets/chicken.png'
 import apple from '../../assets/apple.png'
 import cheeseburger from '../../assets/cheeseburger.png'
+
+//Datas
 import APIService from "../../callAPIService/APIService";
+
+//Styles
 import './index.css'
-import PropTypes from 'prop-types';
-
-
 
 
 class KeyData extends Component {
@@ -16,7 +23,6 @@ class KeyData extends Component {
     constructor(props) {
 
         super(props);
-        //initial state
         this.state = {
             calorieCount: "",
             proteinCount: "",
@@ -28,11 +34,14 @@ class KeyData extends Component {
 
     }
 
-    //Méthode de cycle de vie
     componentDidMount() {
         this.APIService.getUserData(this.props.userId, this.userData)
     }
 
+    /**
+     * Update the state with the fetched data
+     * @param {object} data       the fetched data from API
+     */
     userData = (data) => {
         this.setState({
             calorieCount: data.calorieCount,

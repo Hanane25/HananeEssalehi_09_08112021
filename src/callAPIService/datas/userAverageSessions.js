@@ -1,4 +1,8 @@
 
+
+/**
+* @param {object} data - user average sessions datas récupérés
+*/
 class userAverageSessions {
 
     constructor(data) {

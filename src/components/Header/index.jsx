@@ -1,9 +1,17 @@
-import React from "react";
-import { Component } from "react";
+//React
+import React, { Component } from "react";
+
+//Assets
 import Logo from "../../assets/logo.png"
+
+//Styles
 import './index.css'
 
 
+/**
+ * Display the Header of the page 
+ * @returns {Component}    Nav top with logo and navigation links
+ */
 class Header extends Component {
     render() {
         return (

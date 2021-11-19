@@ -1,8 +1,9 @@
 
+/**
+* @param {object} data - user main datas récupérés
+*/
 class userMainData {
-
     constructor(data) {
-
         this.firstName = data.userInfos.firstName
         this.todayScore = data.todayScore || data.score
         this.calorieCount = data.keyData.calorieCount
@@ -10,7 +11,6 @@ class userMainData {
         this.carbohydrateCount = data.keyData.carbohydrateCount
         this.lipidCount = data.keyData.lipidCount
     }
-
 }
 
 export default userMainData

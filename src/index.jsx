@@ -1,9 +1,10 @@
+//React
 import React from "react";
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import UserPage from "../src/userPage/index";
 
-// import UserPage from '../src/userPage/index'
+//Component
+import UserPage from "../src/userPage/index";
 
 //Style
 import './style/index.css'
@@ -11,19 +12,10 @@ import './style/index.css'
 ReactDOM.render(
     <React.StrictMode>
         <Router>
-
             <Switch>
-
-                <Route exact path="/:userId" render={(props) =>
-                    <UserPage {...props} />
-                }>
-
-                </Route>
-
+                <Route exact path="/:userId" component={UserPage} />
             </Switch>
-
         </Router>
-
     </React.StrictMode>,
     document.getElementById('root')
 )

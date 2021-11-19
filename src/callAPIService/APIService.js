@@ -6,44 +6,78 @@ import userPerformance from "./datas/userPerformance"
 
 class APIService {
 
-    getUserData = (userId, userData) => {
+    /**
+     * Fetch the user main datas from the API
+     * @param {string} userId        user ID
+     * @param {function} userData    function which updates the state when the data is recovered
+     * @param {function} catching    function for error
+     */
+    getUserData = (userId, userData, catching) => {
         console.log('test')
-        fetch(`http://localhost:3000/user/${userId}`) // Call the fetch function passing the url of the API as a parameter
-            //return response sous forme d'objet json()
-            .then((response) => { return response.json() }) // code for handling the data I get from the API
+        fetch(`http://localhost:3000/user/${userId}`)
+            .then((response) => response.json())
             .then((result) => {
-                console.log(result)
-                //new class of userMainData est créée 
                 const user = new userMainData(result.data)
-                //return Function which updates the state when the data is recovered
                 userData(user)
             })
-
+            .catch((error) => {
+                console.log("Error: ", error);
+                catching();
+            })
     }
 
-    getUserAverageSessions = (userId, AverageSessions) => {
+
+    /**
+     * Fetch the user average sessions from the API
+     * @param {string} userId               user ID
+     * @param {function} AverageSessions    function which updates the state when the data is recovered
+     * @param {function} catching           function for error
+     */
+    getUserAverageSessions = (userId, AverageSessions, catching) => {
 
         fetch(`http://localhost:3000/user/${userId}/average-sessions`)
             .then((response) => response.json())
             .then((result) => {
-                console.log(result)
                 const user = new userAverageSessions(result.data)
                 AverageSessions(user)
             })
+            .catch((error) => {
+                console.log("Error: ", error);
+                catching();
+            })
+
     }
 
-    getUserPerformance = (userId, userPerformanceData) => {
+
+    /**
+     * Fetch the user performance from the API
+     * @param {string} userId                     user ID
+     * @param {function} userPerformanceData      function which updates the state when the data is recovered
+     * @param {function} catching                 function for error
+     */
+    getUserPerformance = (userId, userPerformanceData, catching) => {
 
         fetch(`http://localhost:3000/user/${userId}/performance`)
             .then((response) => response.json())
             .then((result) => {
                 const user = new userPerformance(result.data)
                 userPerformanceData(user)
-
             })
+            .catch((error) => {
+                console.log("Error: ", error);
+                catching();
+            })
+
     }
 
-    getUserActivity = (userId, userActivityData) => {
+
+    /**
+     * Fetch the user activity from the API
+     * @param {string} userId                     user ID
+     * @param {function} userActivityData         function which updates the state when the data is recovered
+     * @param {function} catching                 function for error
+     */
+    getUserActivity = (userId, userActivityData, catching) => {
 
         fetch(`http://localhost:3000/user/${userId}/activity`)
             .then((response) => response.json())
@@ -51,8 +85,11 @@ class APIService {
                 const user = new userActivity(result.data)
                 userActivityData(user)
             })
+            .catch((error) => {
+                console.log("Error: ", error);
+                catching();
+            })
     }
-
 }
 
 export default APIService

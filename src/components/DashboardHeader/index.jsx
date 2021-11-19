@@ -1,7 +1,12 @@
+//React
 import React, { Component } from "react";
-import APIService from "../../callAPIService/APIService";
-import './index.css'
 import PropTypes from 'prop-types';
+
+//Datas
+import APIService from "../../callAPIService/APIService";
+
+//Styles
+import './index.css'
 
 
 class DashboardHeader extends Component {
@@ -11,7 +16,6 @@ class DashboardHeader extends Component {
         this.state = {
             firstName: ''
         }
-
         this.APIService = new APIService()
     }
 
@@ -19,6 +23,11 @@ class DashboardHeader extends Component {
         this.APIService.getUserData(this.props.userId, this.userData)
     }
 
+
+    /**
+     * Update the state with the fetched data
+     * @param {object} data         the fetched data from API
+     */
     userData = (data) => {
         this.setState({
             firstName: data.firstName

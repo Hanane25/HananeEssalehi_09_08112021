@@ -1,20 +1,25 @@
+//React
 import React, { Component } from "react";
-import ActivityChart from "../ActivityChart";
-import AverageSessionsChart from "../AverageSessionsChart";
-
-import PerformanceChart from "../PerformanceChart";
-import ScoreChart from "../ScoreChart";
-
-import KeyData from "../KeyData";
-import './index.css'
-import DashboardHeader from "../DashboardHeader";
 import PropTypes from 'prop-types';
 
+//Components
+import ActivityChart from "../ActivityChart";
+import AverageSessionsChart from "../AverageSessionsChart";
+import PerformanceChart from "../PerformanceChart";
+import ScoreChart from "../ScoreChart";
+import KeyData from "../KeyData";
+import DashboardHeader from "../DashboardHeader";
 
+//Styles
+import './index.css'
+
+
+/**
+ * Display the user's Dashboard
+ * @returns {Component}      Div with graphs and key data
+ */
 class Dashboard extends Component {
-
     render() {
-
         const { userId } = this.props
 
         return (

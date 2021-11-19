@@ -1,10 +1,14 @@
+//React
 import React, { Component } from "react";
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
-import APIService from "../../callAPIService/APIService";
-import './index.css';
 import PropTypes from 'prop-types';
 
-const colors = ['#FF0000', 'transparent']
+//Datas
+import APIService from "../../callAPIService/APIService";
+
+//Style
+import './index.css';
+
 
 class ScoreChart extends Component {
 
@@ -12,7 +16,6 @@ class ScoreChart extends Component {
         super(props)
         this.state = {
             todayScore: "",
-
         }
         this.APIService = new APIService()
     }
@@ -21,6 +24,11 @@ class ScoreChart extends Component {
         this.APIService.getUserData(this.props.userId, this.UserScore)
     }
 
+
+    /**
+     * Update the state with the fetched data
+     * @param {object} data         the fetched data from API
+     */
     UserScore = (data) => {
         console.log(data)
         this.setState({
@@ -32,16 +40,12 @@ class ScoreChart extends Component {
     render() {
 
         const score = [{ value: this.state.todayScore }, { value: 1 - this.state.todayScore }]
-        // const graphColors = ['red', "transparent"]
-
+        const colors = ['#FF0000', 'transparent']
 
         return (
 
             <div className='scoreChart'>
-
                 <p className='score'><strong>Score</strong></p>
-
-
 
                 <ResponsiveContainer width='100%' height='100%'>
 
@@ -51,8 +55,6 @@ class ScoreChart extends Component {
                             data={score}
                             innerRadius={70}
                             outerRadius={80}
-                            // fill="white"
-                            // paddingAngle={5}
                             startAngle={90}
                             dataKey="value"
                             endAngle={450}
@@ -64,7 +66,6 @@ class ScoreChart extends Component {
                                     stroke="transparent"
                                     cornerRadius="50%"
                                     fill={colors[index % colors.length]}
-
                                 />
                             ))}
 

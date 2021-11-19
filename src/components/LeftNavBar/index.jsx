@@ -1,12 +1,23 @@
-import React from "react";
-import { Component } from "react";
+//React
+import React, { Component } from "react";
+
+//Component
 import LeftNavIcon from '../LeftNavIcon/index';
+
+//Assets
 import yoga from '../../assets/leftNavBar/yoga.png'
 import swimmer from '../../assets/leftNavBar/swimmer.png'
 import biker from '../../assets/leftNavBar/biker.png'
 import weight from '../../assets/leftNavBar/weight.png'
+
+//Styles
 import './index.css'
 
+
+/**
+ * Display the left navigation bar 
+ * @returns {Component}     Left navigation with icons and Copyright
+ */
 class LeftNavBar extends Component {
     render() {
         return (

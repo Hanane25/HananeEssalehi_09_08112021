@@ -1,7 +1,15 @@
+//React
 import React, { Component } from "react";
-import './index.css'
 import PropTypes from 'prop-types';
 
+//Styles
+import './index.css'
+
+
+/**
+ * Display tag of keyData
+ * @returns {Component}     tag with img and description 
+ */
 class RightTag extends Component {
     render() {
 

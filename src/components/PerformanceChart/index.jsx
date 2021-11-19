@@ -1,8 +1,14 @@
+//React
 import React, { Component } from "react";
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer } from "recharts";
-import APIService from "../../callAPIService/APIService";
-import './index.css'
 import PropTypes from 'prop-types';
+
+//Datas
+import APIService from "../../callAPIService/APIService";
+
+//Style
+import './index.css'
+
 
 class PerformanceChart extends Component {
 
@@ -34,6 +40,11 @@ class PerformanceChart extends Component {
         this.APIService.getUserPerformance(this.props.userId, this.userPerformance)
     }
 
+
+    /**
+     * Update the state with the fetched data
+     * @param {object} data         the fetched data from API
+     */
     userPerformance = (data) => {
         this.setState({
             kind: data.kind,
@@ -52,15 +63,7 @@ class PerformanceChart extends Component {
                         outerRadius={"55%"}
                         cx="47%"
                         cy="50%"
-                        // width={200}
-                        // height={200}
                         data={this.state.datas}
-                    // margin={{
-                    //     top: 0,
-                    //     right: 10,
-                    //     left: 10,
-                    //     bottom: 0,
-                    // }}
                     >
 
                         < PolarGrid radialLines={false} />
@@ -69,30 +72,23 @@ class PerformanceChart extends Component {
                             tickLine={false}
                             stroke="white"
                             dataKey="kind"
-                            // axisLine={false}
-
                             tickFormatter={(value) => this.state.kind[value][0] + this.state.kind[value].slice(1)}
                         />
 
                         <Radar
                             dataKey="value"
                             fill='#ff0101'
-                            // stroke="#ff0101"
                             fillOpacity={0.8}
                         />
 
                     </RadarChart>
-
-
                 </ResponsiveContainer>
-
-
-
 
             </div >
         )
     }
 }
+
 
 PerformanceChart.propTypes = {
     userId: PropTypes.string.isRequired

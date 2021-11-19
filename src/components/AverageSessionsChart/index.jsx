@@ -1,19 +1,42 @@
-import React from "react";
-import { Component } from "react";
+//React
+import React, { Component } from "react";
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import APIService from "../../callAPIService/APIService";
-import './index.css'
 import PropTypes from 'prop-types';
+
+//Datas
+import APIService from "../../callAPIService/APIService";
+
+//Style
+import './index.css'
+
+
+/**
+ * Custom tooltip of LineChart
+ * @param {boolean} active      Tooltip status
+ * @param {array} payload       Containing the information of the content to be displayed in the tooltip
+ * @returns {Component}         Div with the information to display (sessionLenght)
+ */
+const CustomizedTooltip = ({ payload, active }) => {
+    if (active) {
+        return (
+            <div className='lineTooltip'>
+                <strong>{`${payload[0].value} min`}</strong>
+            </div>
+        )
+    }
+    return null
+}
+
 
 class AverageSessionsChart extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            line: {
-                day: 0,              //x
-                sessionLength: ""    //y
-            }
+            line: [{
+                day: 0,
+                sessionLength: ""
+            }]
         }
         this.APIService = new APIService()
     }
@@ -22,6 +45,11 @@ class AverageSessionsChart extends Component {
         this.APIService.getUserAverageSessions(this.props.userId, this.AverageSessions)
     }
 
+
+    /**
+     * Update the state with the fetched data
+     * @param {object} data         the fetched data from API
+     */
     AverageSessions = (data) => {
         console.log(data.line)
         this.setState({
@@ -30,6 +58,12 @@ class AverageSessionsChart extends Component {
         console.log(this.state.line)
     }
 
+
+    /**
+     * Custom X axis of LineChart
+     * @param {Object} data       Corresponds to unformatted X axis data (number)
+     * @returns {string}          Data formatted in the correct format: letter corresponding to the day number
+     */
     getXAxis(data) {
         let value = "";
         switch (data.day) {
@@ -60,8 +94,8 @@ class AverageSessionsChart extends Component {
         return value;
     }
 
-    render() {
 
+    render() {
         return (
             <div className='averageSessionsChart'>
                 <p className='title'><strong>Durée moyenne des <br />sessions</strong></p>
@@ -69,6 +103,7 @@ class AverageSessionsChart extends Component {
                 <ResponsiveContainer width='100%' height='100%'>
 
                     <LineChart
+                        data={this.state.line}
                         width={250}
                         height={150}
                         margin={{
@@ -78,7 +113,6 @@ class AverageSessionsChart extends Component {
                             bottom: 0,
                         }}
                         opacity={'50%'}
-                        data={this.state.line}
                     >
 
                         <XAxis
@@ -100,7 +134,7 @@ class AverageSessionsChart extends Component {
                         <Tooltip content={<CustomizedTooltip />}
                             cursor={{
                                 stroke: "rgba(0, 0, 0, 0.1)",
-                                // strokeWidth: 50,
+                                strokeWidth: 35,
                             }}
                         />
 
@@ -128,17 +162,6 @@ class AverageSessionsChart extends Component {
     }
 }
 
-const CustomizedTooltip = ({ payload, active }) => {  //payload: The source data of the content to be displayed in the tooltip
-    //if active is true the tooltip is displayed
-    if (active) {
-        return (
-            <div className='lineTooltip'>
-                <strong>{`${payload[0].value} min`}</strong>
-            </div>
-        )
-    }
-    return null
-}
 
 AverageSessionsChart.propTypes = {
     userId: PropTypes.string.isRequired

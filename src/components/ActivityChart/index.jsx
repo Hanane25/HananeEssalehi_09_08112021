@@ -1,9 +1,48 @@
+//React
 import React, { Component } from "react";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import APIService from "../../callAPIService/APIService";
-import './index.css'
 import PropTypes from 'prop-types';
 
+//Datas
+import APIService from "../../callAPIService/APIService";
+
+//Style
+import './index.css'
+
+
+
+/**
+ * Custom tooltip of BarChart
+ * @param {boolean} active     Tooltip status
+ * @param {array} payload      Containing the information of the content to be displayed in the tooltip
+ * @returns {Component}        Div with the information to display (kilogram, calories)
+ */
+const CustomTooltip = ({ active, payload }) => {
+    if (active) {
+        return (
+            <div className='activityTooltip'>
+                <p><strong>{`${payload[0].value}kg`}</strong></p>
+                <p><strong>{`${payload[1].value}kCal`}</strong></p>
+            </div>
+        )
+    }
+
+    return null
+}
+
+
+/**
+ * Custom X axis of BarChart
+ * @param {string} xAxis      X axis data in the forme of (YYYY-MM-DD)
+ * @returns {string}          X axis data formatted in the correct format (DD)
+ */
+const formatXAxis = (xAxis) => {
+    xAxis = xAxis.slice(8)
+    if (xAxis[0] === "0") {
+        xAxis = xAxis.slice(1)
+    }
+    return xAxis
+}
 
 
 class ActivityChart extends Component {
@@ -11,11 +50,13 @@ class ActivityChart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            sessions: {
-                day: '',
-                kilogram: '',
-                calories: '',
-            },
+            sessions: [
+                {
+                    day: "",
+                    kilogram: "",
+                    calories: ""
+                }
+            ]
         }
         this.APIService = new APIService()
     }
@@ -24,15 +65,19 @@ class ActivityChart extends Component {
         this.APIService.getUserActivity(this.props.userId, this.userActivity)
     }
 
+
+    /**
+     * Update the state with the fetched data
+     * @param {object} data       the fetched data from API
+     */
     userActivity = (data) => {
         console.log(data)
         this.setState({
             sessions: data.session,
+
         })
 
     }
-
-
 
     render() {
         return (
@@ -77,7 +122,7 @@ class ActivityChart extends Component {
                             tickLine={false}
                             dy={10}
                             axisLine={{ stroke: '#DEDEDE' }}
-                            // tickFormatter={this.getXAxis}
+                            tickFormatter={formatXAxis}
                             tick={{ fontSize: 14 }}
                         />
 
@@ -129,18 +174,9 @@ class ActivityChart extends Component {
     }
 }
 
-const CustomTooltip = ({ active, payload }) => {
-    if (active) {
-        return (
-            <div className='activityTooltip'>
-                <p><strong>{`${payload[0].value}kg`}</strong></p>
-                <p><strong>{`${payload[1].value}kCal`}</strong></p>
-            </div>
-        );
-    }
 
-    return null
-};
+
+
 
 ActivityChart.propTypes = {
     userId: PropTypes.string.isRequired
