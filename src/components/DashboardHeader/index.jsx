@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import APIService from "../../callAPIService/APIService";
 import './index.css'
+import PropTypes from 'prop-types';
+
 
 class DashboardHeader extends Component {
 
@@ -32,5 +34,10 @@ class DashboardHeader extends Component {
         )
     }
 }
+
+DashboardHeader.propTypes = {
+    userId: PropTypes.string.isRequired
+}
+
 
 export default DashboardHeader

@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import UserPage from "../src/userPage/index";
 
-import UserPage from '../src/userPage/index'
+// import UserPage from '../src/userPage/index'
 
 //Style
 import './style/index.css'
@@ -18,7 +19,6 @@ ReactDOM.render(
                 }>
 
                 </Route>
-
 
             </Switch>
 

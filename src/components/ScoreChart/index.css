@@ -1,7 +1,7 @@
 
 .scoreChart{
     width: 33%;
-    height: 260px;
+    height: 250px;
     background-color: #FBFBFB;
     border-radius: 6px;
     position: relative;
@@ -16,6 +16,18 @@
     left: 15px;
 }
 
-.description{
+.scoreDescription{
     position: absolute;
+    top: 30%;
+    left: 38%;
+    text-align: center;
+}
+
+.todayScore{
+    font-size: 1.4em;
+}
+
+.obj{
+    color: #74798C;
+    font-size: 0.9em;
 }

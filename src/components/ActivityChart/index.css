@@ -1,9 +1,9 @@
 
 .activityChart{
     /* width: 80%; */
-    height: 270px;
+    height: 230px;
     background-color: #FBFBFB;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     padding: 20px;
     border-radius: 6px;
 }
@@ -13,8 +13,62 @@
     justify-content: space-between;
     font-size: 0.8em;
     margin-bottom: 20px;
+    align-items: baseline;
 }
 
 .activityData{
     display: flex;
+    width: 300px;
+    justify-content: space-between;
+}
+
+.poids{
+    display: flex;
+    align-items: baseline;
+}
+
+.poids p{
+    color: #74798C;
+}
+
+.poidsDot{
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: #282D30;
+    margin-right: 10px;
+}
+
+.Calories{
+    display: flex;
+    align-items: baseline;
+}
+
+.Calories p{
+    color: #74798C;
+}
+
+.CaloriesDot{
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: #E60000;
+    margin-right: 10px;
+}
+
+.activitéQuotidienne{
+    color: #20253A;
+}
+
+.activityTooltip{
+    background-color: #E60000;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 5px;
+}
+
+.activityTooltip p{
+    color: white;
+    font-size: 7px;
 }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer } from "recharts";
 import APIService from "../../callAPIService/APIService";
 import './index.css'
+import PropTypes from 'prop-types';
 
 class PerformanceChart extends Component {
 
@@ -91,6 +92,10 @@ class PerformanceChart extends Component {
             </div >
         )
     }
+}
+
+PerformanceChart.propTypes = {
+    userId: PropTypes.string.isRequired
 }
 
 export default PerformanceChart

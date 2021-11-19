@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './index.css'
+import PropTypes from 'prop-types';
 
 class RightTag extends Component {
     render() {
@@ -16,6 +17,13 @@ class RightTag extends Component {
             </div>
         )
     }
+}
+
+RightTag.propTypes = {
+    color: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired
 }
 
 export default RightTag

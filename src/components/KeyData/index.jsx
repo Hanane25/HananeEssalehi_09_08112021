@@ -6,6 +6,8 @@ import apple from '../../assets/apple.png'
 import cheeseburger from '../../assets/cheeseburger.png'
 import APIService from "../../callAPIService/APIService";
 import './index.css'
+import PropTypes from 'prop-types';
+
 
 
 
@@ -72,6 +74,10 @@ class KeyData extends Component {
             </div>
         )
     }
+}
+
+KeyData.propTypes = {
+    userId: PropTypes.string.isRequired
 }
 
 export default KeyData

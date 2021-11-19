@@ -3,6 +3,7 @@ import { Component } from "react";
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import APIService from "../../callAPIService/APIService";
 import './index.css'
+import PropTypes from 'prop-types';
 
 class AverageSessionsChart extends Component {
 
@@ -60,33 +61,23 @@ class AverageSessionsChart extends Component {
     }
 
     render() {
+
         return (
             <div className='averageSessionsChart'>
-                <p className='title'>Durée moyenne des <br />sessions</p>
+                <p className='title'><strong>Durée moyenne des <br />sessions</strong></p>
 
                 <ResponsiveContainer width='100%' height='100%'>
 
                     <LineChart
                         width={250}
-                        height={200}
-
+                        height={150}
                         margin={{
                             top: 5,
                             right: 20,
                             left: 20,
-                            bottom: 5,
+                            bottom: 0,
                         }}
-
-                        // data={[
-                        //     { day: 1, sessionLength: 10 },
-                        //     { day: 2, sessionLength: 20 },
-                        //     { day: 3, sessionLength: 10 },
-                        //     { day: 4, sessionLength: 10 },
-                        //     { day: 5, sessionLength: 10 },
-                        //     { day: 6, sessionLength: 10 },
-                        //     { day: 7, sessionLength: 10 },
-                        // ]}
-
+                        opacity={'50%'}
                         data={this.state.line}
                     >
 
@@ -95,16 +86,23 @@ class AverageSessionsChart extends Component {
                             stroke="white"
                             axisLine={false}
                             tickLine={false}
+                            opacity={'70%'}
+                            fontSize={'14px'}
                         />
 
                         <YAxis
                             dataKey="sessionLength"
                             hide={true}
                             type="number"
-                            domain={["dataMin -10", "dataMax +30"]} />
+                            domain={["dataMin - 5", "dataMax + 20"]} />
 
 
-                        <Tooltip content={<CustomizedTooltip />} />
+                        <Tooltip content={<CustomizedTooltip />}
+                            cursor={{
+                                stroke: "rgba(0, 0, 0, 0.1)",
+                                // strokeWidth: 50,
+                            }}
+                        />
 
                         <Line
                             type="monotone"
@@ -113,10 +111,12 @@ class AverageSessionsChart extends Component {
                             dataKey="sessionLength"
                             dot={false}
                             activeDot={{
-                                stroke: "white",
-                                strokeWidth: 9,
-                                r: "5"
-                            }} />
+                                stroke: "rgba(255, 255, 255, 0.2)",
+                                strokeWidth: 10,
+                                r: 5,
+                            }}
+
+                        />
 
                     </LineChart>
 
@@ -132,12 +132,16 @@ const CustomizedTooltip = ({ payload, active }) => {  //payload: The source data
     //if active is true the tooltip is displayed
     if (active) {
         return (
-            <div>
-                {`${payload[0].value} min`}
+            <div className='lineTooltip'>
+                <strong>{`${payload[0].value} min`}</strong>
             </div>
         )
     }
     return null
+}
+
+AverageSessionsChart.propTypes = {
+    userId: PropTypes.string.isRequired
 }
 
 

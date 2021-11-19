@@ -8,7 +8,7 @@ import ScoreChart from "../ScoreChart";
 import KeyData from "../KeyData";
 import './index.css'
 import DashboardHeader from "../DashboardHeader";
-
+import PropTypes from 'prop-types';
 
 
 class Dashboard extends Component {
@@ -38,6 +38,10 @@ class Dashboard extends Component {
             </div>
         )
     }
+}
+
+Dashboard.propTypes = {
+    userId: PropTypes.string.isRequired
 }
 
 export default Dashboard

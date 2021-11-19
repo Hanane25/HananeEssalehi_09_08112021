@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import APIService from "../../callAPIService/APIService";
 import './index.css'
+import PropTypes from 'prop-types';
 
 
 
@@ -10,11 +11,11 @@ class ActivityChart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            sessions: [{
-                day: '',              //x
-                kilogram: '',    //y
+            sessions: {
+                day: '',
+                kilogram: '',
                 calories: '',
-            }]
+            },
         }
         this.APIService = new APIService()
     }
@@ -26,48 +27,10 @@ class ActivityChart extends Component {
     userActivity = (data) => {
         console.log(data)
         this.setState({
-            sessions: data.session
+            sessions: data.session,
         })
-    }
 
-    // getXAxis(data) {
-    //     let value = "";
-    //     switch (data.day) {
-    //         case 1:
-    //             value = "1";
-    //             break;
-    //         case 2:
-    //             value = "2";
-    //             break;
-    //         case 3:
-    //             value = "3";
-    //             break;
-    //         case 4:
-    //             value = "4";
-    //             break;
-    //         case 5:
-    //             value = "5";
-    //             break;
-    //         case 6:
-    //             value = "6";
-    //             break;
-    //         case 7:
-    //             value = "7";
-    //             break;
-    //         case 8:
-    //             value = "8";
-    //             break;
-    //         case 9:
-    //             value = "9";
-    //             break;
-    //         case 10:
-    //             value = "10";
-    //             break;
-    //         default:
-    //             value = "";
-    //     }
-    //     return value;
-    // }
+    }
 
 
 
@@ -76,13 +39,15 @@ class ActivityChart extends Component {
             <div className='activityChart'>
 
                 <div className='activityHeader'>
-                    <p>Activité quotidienne</p>
+                    <p className='activitéQuotidienne'><strong> Activité quotidienne</strong></p>
                     <div className='activityData'>
-                        <div>
-                            <p>Poids (kg)</p>
+                        <div className='poids'>
+                            <div className='poidsDot'></div>
+                            <p><strong> Poids (kg)</strong></p>
                         </div>
-                        <div>
-                            <p>Poids Calories brûlées (kCal)</p>
+                        <div className='Calories'>
+                            <div className='CaloriesDot'></div>
+                            <p> <strong>Calories brûlées (kCal)</strong></p>
                         </div>
                     </div>
                 </div>
@@ -92,7 +57,14 @@ class ActivityChart extends Component {
                     <BarChart
                         width={700}
                         height={200}
-                        data={this.state.sessions}>
+                        data={this.state.sessions}
+                        margin={{
+                            top: 5,
+                            right: 20,
+                            left: 30,
+                            bottom: 10,
+                        }}
+                    >
 
                         <CartesianGrid
                             vertical={false}
@@ -100,10 +72,11 @@ class ActivityChart extends Component {
                         />
 
                         <XAxis
+
                             dataKey="day"
                             tickLine={false}
-                            dy={16}
-                            axisLine={{ stroke: 'red' }}
+                            dy={10}
+                            axisLine={{ stroke: '#DEDEDE' }}
                             // tickFormatter={this.getXAxis}
                             tick={{ fontSize: 14 }}
                         />
@@ -124,7 +97,7 @@ class ActivityChart extends Component {
                             yAxisId="calories"
                             dataKey="calories"
                             hide={true}
-                            domain={[0, "dataMax +10"]}
+                        // domain={[0, "dataMax +10"]}
                         />
 
                         <Tooltip
@@ -159,14 +132,18 @@ class ActivityChart extends Component {
 const CustomTooltip = ({ active, payload }) => {
     if (active) {
         return (
-            <div>
-                <p>{`${payload[0].value}kg`}</p>
-                <p>{`${payload[1].value}kCal`}</p>
+            <div className='activityTooltip'>
+                <p><strong>{`${payload[0].value}kg`}</strong></p>
+                <p><strong>{`${payload[1].value}kCal`}</strong></p>
             </div>
         );
     }
 
     return null
 };
+
+ActivityChart.propTypes = {
+    userId: PropTypes.string.isRequired
+}
 
 export default ActivityChart

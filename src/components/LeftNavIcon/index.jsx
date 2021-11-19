@@ -1,6 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import './index.css'
+import PropTypes from 'prop-types';
 
 class LeftNavIcon extends Component {
     render() {
@@ -11,6 +12,10 @@ class LeftNavIcon extends Component {
             </div>
         )
     }
+}
+
+LeftNavIcon.propTypes = {
+    src: PropTypes.string.isRequired
 }
 
 export default LeftNavIcon

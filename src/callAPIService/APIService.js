@@ -50,7 +50,6 @@ class APIService {
             .then((result) => {
                 const user = new userActivity(result.data)
                 userActivityData(user)
-
             })
     }
 

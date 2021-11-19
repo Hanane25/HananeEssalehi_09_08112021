@@ -2,10 +2,11 @@
 
 .averageSessionsChart{
     width: 33%;
-    height: 260px;
-    background-color: #282D30;
+    height: 250px;
+    background-color: #FF0000;
     position: relative;
     border-radius: 6px;
+    
 }
 
 .title{
@@ -15,4 +16,19 @@
     margin: 0px;
     top: 20px;
     left: 20px;
+    opacity: 50%;
 }
+
+.lineTooltip{
+    background-color: white;
+    color: black;
+    display: flex;
+    padding: 10px 5px;
+    font-size: 0.6em;
+}
+
+
+
+/* .lineTooltip p{
+    margin: 15px;
+} */

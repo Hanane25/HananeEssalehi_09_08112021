@@ -5,6 +5,7 @@ import Dashboard from '../components/Dashboard/index'
 import './index.css'
 
 class UserPage extends Component {
+
     render() {
 
         const { userId } = this.props.match.params
