@@ -8,40 +8,40 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Dependencies
 
-React
-React-router-dom: 
+- React
+- React-router-dom: 
  $ npm install react-router-dom
-Recharts: 
+- Recharts: 
  $ npm install recharts
-Prop-types: 
+- Prop-types: 
  $ npm i prop-types
-Recommended text editor: Visual Studio Code
+- Recommended text editor: Visual Studio Code
 
 
 ## Install and launch Back-End
 
-Clone the repository of SportSee back-end:
+- Clone the repository of SportSee back-end:
  https://github.com/Hanane25/P9-front-end-dashboard.git
 
-Install dependencies:
+- Install dependencies:
  npm install
 
-Launch back-end on port 3000 (default port):
+- Launch back-end on port 3000 (default port):
  npm run start
 
 
 ## Install and run the project
 
-Clone the project to your computer
+- Clone the project to your computer
  https://github.com/Hanane25/HananeEssalehi_09_08112021.git
 
-Install the packages
+- Install the packages
  npm install
 
-Launch front-end on port 3001:
+- Launch front-end on port 3001:
  npm start
 
-URL availables:
+- URL availables:
  http://localhost:3001/user/12
  http://localhost:3001/user/18
 
