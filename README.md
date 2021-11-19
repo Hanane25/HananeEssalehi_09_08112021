@@ -10,11 +10,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - React
 - React-router-dom: <br/>
- $ npm install react-router-dom
+ $npm install react-router-dom
 - Recharts: <br/>
- $ npm install recharts
+ $npm install recharts
 - Prop-types: <br/>
- $ npm i prop-types <br/>
+ $npm i prop-types <br/>
 - Recommended text editor: Visual Studio Code
 
 
