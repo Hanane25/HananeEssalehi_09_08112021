@@ -11,9 +11,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - React
 - React-router-dom: <br/>
 
-
-<code>$npm install react-router-dom</code>
-
+  <pre><code>$npm install react-router-dom</code></pre>
 
 - Recharts: <br/>
  $npm install recharts
