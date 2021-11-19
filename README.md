@@ -10,13 +10,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - React
 - React-router-dom: <br/>
-
-  <pre><code>$npm install react-router-dom</code></pre>
-
+  <code>npm install react-router-dom</code>
 - Recharts: <br/>
- $npm install recharts
+  <code>npm install recharts</code>
 - Prop-types: <br/>
- $npm i prop-types <br/>
+  <code>npm i prop-types</code> 
 - Recommended text editor: Visual Studio Code
 
 
@@ -26,10 +24,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  https://github.com/Hanane25/P9-front-end-dashboard.git
 
 - Install dependencies:
- npm install
+  <code>npm install</code>
 
 - Launch back-end on port 3000 (default port):
- npm run start
+  <code>npm run start</code>
 
 
 ## Install and run the project
@@ -38,10 +36,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  https://github.com/Hanane25/HananeEssalehi_09_08112021.git
 
 - Install the packages
- npm install
+  <code>npm install</code>
 
 - Launch front-end on port 3001:
- npm start
+  <code>npm start</code>
 
 - URL availables:
  http://localhost:3001/user/12
