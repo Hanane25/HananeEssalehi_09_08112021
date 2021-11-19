@@ -10,7 +10,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - React
 - React-router-dom: <br/>
-> $npm install react-router-dom
+
+
+<code>$npm install react-router-dom</code>
+
+
 - Recharts: <br/>
  $npm install recharts
 - Prop-types: <br/>
