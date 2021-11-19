@@ -20,28 +20,28 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Install and launch Back-End
 
-- Clone the repository of SportSee back-end:
+- Clone the repository of SportSee back-end: <br/>
  https://github.com/Hanane25/P9-front-end-dashboard.git
 
-- Install dependencies:
+- Install dependencies: <br/>
   <code>npm install</code>
 
-- Launch back-end on port 3000 (default port):
+- Launch back-end on port 3000 (default port): <br/>
   <code>npm run start</code>
 
 
 ## Install and run the project
 
-- Clone the project to your computer
+- Clone the project to your computer: <br/>
  https://github.com/Hanane25/HananeEssalehi_09_08112021.git
 
-- Install the packages
+- Install the packages: <br/>
   <code>npm install</code>
 
-- Launch front-end on port 3001:
+- Launch front-end on port 3001: <br/>
   <code>npm start</code>
 
-- URL availables:
+- URL availables: <br/>
  http://localhost:3001/user/12
  http://localhost:3001/user/18
 
