@@ -1,6 +1,6 @@
 # [OpenClassrooms] Projet 12 - Développez un tableau de bord d'analytics avec React : SportSee
 
-This projet consists on building a user profile page in React and fetching data from a NodeJS external server.
+This project consists of building a user profile page in React and fetching data from a NodeJS external server.
 
 This repo contains the source code of the sports analytics dashboard SportSee
 
