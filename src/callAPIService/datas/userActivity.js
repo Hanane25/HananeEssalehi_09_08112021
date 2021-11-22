@@ -1,6 +1,6 @@
 
 /**
-* @param {object} data - user activity datas récupérés
+* @param {object} data - user activity datas récupérés (day/kilogram/calories)
 */
 class userActivity {
     constructor(data) {
