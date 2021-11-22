@@ -10,7 +10,6 @@ class APIService {
      * Fetch the user main datas from the API
      * @param {string} userId        user ID
      * @param {function} userData    function which updates the state when the data is recovered
-     * @param {function} catching    function for error
      */
     getUserData = (userId, userData) => {
         console.log('test')
@@ -27,7 +26,6 @@ class APIService {
      * Fetch the user average sessions from the API
      * @param {string} userId               user ID
      * @param {function} AverageSessions    function which updates the state when the data is recovered
-     * @param {function} catching           function for error
      */
     getUserAverageSessions = (userId, AverageSessions) => {
 
@@ -45,7 +43,6 @@ class APIService {
      * Fetch the user performance from the API
      * @param {string} userId                     user ID
      * @param {function} userPerformanceData      function which updates the state when the data is recovered
-     * @param {function} catching                 function for error
      */
     getUserPerformance = (userId, userPerformanceData) => {
 
@@ -63,7 +60,6 @@ class APIService {
      * Fetch the user activity from the API
      * @param {string} userId                     user ID
      * @param {function} userActivityData         function which updates the state when the data is recovered
-     * @param {function} catching                 function for error
      */
     getUserActivity = (userId, userActivityData) => {
 
