@@ -21,7 +21,7 @@ class APIService {
                 userData(user)
             })
             .catch((error) => {
-                console.log("Error: ", error);
+                console.log("Erreur", error);
                 catching();
             })
     }
@@ -42,7 +42,7 @@ class APIService {
                 AverageSessions(user)
             })
             .catch((error) => {
-                console.log("Error: ", error);
+                console.log("Erreur:", error);
                 catching();
             })
 
@@ -64,7 +64,7 @@ class APIService {
                 userPerformanceData(user)
             })
             .catch((error) => {
-                console.log("Error: ", error);
+                console.log("Erreur:", error);
                 catching();
             })
 
@@ -86,7 +86,7 @@ class APIService {
                 userActivityData(user)
             })
             .catch((error) => {
-                console.log("Error: ", error);
+                console.log("Erreur:", error);
                 catching();
             })
     }

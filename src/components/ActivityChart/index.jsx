@@ -74,9 +74,7 @@ class ActivityChart extends Component {
         console.log(data)
         this.setState({
             sessions: data.session,
-
         })
-
     }
 
     render() {
@@ -117,7 +115,6 @@ class ActivityChart extends Component {
                         />
 
                         <XAxis
-
                             dataKey="day"
                             tickLine={false}
                             dy={10}
@@ -142,11 +139,9 @@ class ActivityChart extends Component {
                             yAxisId="calories"
                             dataKey="calories"
                             hide={true}
-                        // domain={[0, "dataMax +10"]}
                         />
 
                         <Tooltip
-                            // cursor={{ fill: colors.backgroundGraphGrey }}
                             content={<CustomTooltip />}
                         />
 

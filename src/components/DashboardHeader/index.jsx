@@ -37,7 +37,7 @@ class DashboardHeader extends Component {
     render() {
         return (
             <div className='dashboardHeader'>
-                <h1>Bonjour {this.state.firstName} </h1>
+                <h1>Bonjour <span className='name'>{this.state.firstName}</span></h1>
                 <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
             </div>
         )
