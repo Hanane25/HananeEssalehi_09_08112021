@@ -12,17 +12,13 @@ class APIService {
      * @param {function} userData    function which updates the state when the data is recovered
      * @param {function} catching    function for error
      */
-    getUserData = (userId, userData, catching) => {
+    getUserData = (userId, userData) => {
         console.log('test')
         fetch(`http://localhost:3000/user/${userId}`)
             .then((response) => response.json())
             .then((result) => {
                 const user = new userMainData(result.data)
                 userData(user)
-            })
-            .catch((error) => {
-                console.log("Erreur", error);
-                catching();
             })
     }
 
@@ -33,17 +29,13 @@ class APIService {
      * @param {function} AverageSessions    function which updates the state when the data is recovered
      * @param {function} catching           function for error
      */
-    getUserAverageSessions = (userId, AverageSessions, catching) => {
+    getUserAverageSessions = (userId, AverageSessions) => {
 
         fetch(`http://localhost:3000/user/${userId}/average-sessions`)
             .then((response) => response.json())
             .then((result) => {
                 const user = new userAverageSessions(result.data)
                 AverageSessions(user)
-            })
-            .catch((error) => {
-                console.log("Erreur:", error);
-                catching();
             })
 
     }
@@ -55,17 +47,13 @@ class APIService {
      * @param {function} userPerformanceData      function which updates the state when the data is recovered
      * @param {function} catching                 function for error
      */
-    getUserPerformance = (userId, userPerformanceData, catching) => {
+    getUserPerformance = (userId, userPerformanceData) => {
 
         fetch(`http://localhost:3000/user/${userId}/performance`)
             .then((response) => response.json())
             .then((result) => {
                 const user = new userPerformance(result.data)
                 userPerformanceData(user)
-            })
-            .catch((error) => {
-                console.log("Erreur:", error);
-                catching();
             })
 
     }
@@ -77,17 +65,13 @@ class APIService {
      * @param {function} userActivityData         function which updates the state when the data is recovered
      * @param {function} catching                 function for error
      */
-    getUserActivity = (userId, userActivityData, catching) => {
+    getUserActivity = (userId, userActivityData) => {
 
         fetch(`http://localhost:3000/user/${userId}/activity`)
             .then((response) => response.json())
             .then((result) => {
                 const user = new userActivity(result.data)
                 userActivityData(user)
-            })
-            .catch((error) => {
-                console.log("Erreur:", error);
-                catching();
             })
     }
 }
