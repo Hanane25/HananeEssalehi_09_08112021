@@ -48,7 +48,6 @@ class ScoreChart extends Component {
                 <p className='score'><strong>Score</strong></p>
 
                 <ResponsiveContainer width='100%' height='100%'>
-
                     <PieChart width={258} height={263}>
 
                         <Pie
@@ -58,7 +57,6 @@ class ScoreChart extends Component {
                             startAngle={90}
                             dataKey="value"
                             endAngle={450}
-
                         >
                             {score.map((entry, index) => (
                                 <Cell
@@ -71,7 +69,6 @@ class ScoreChart extends Component {
 
                         </Pie>
                     </PieChart>
-
                 </ResponsiveContainer>
 
                 <div className='scoreDescription'>
