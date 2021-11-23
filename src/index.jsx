@@ -14,7 +14,8 @@ ReactDOM.render(
     <React.StrictMode>
         <Router>
             <Switch>
-                <Route exact path="/:userId" component={UserPage} />
+                <Route exact path="/:userId" render={(props) => <UserPage {...props} />}
+                />
             </Switch>
         </Router>
     </React.StrictMode>,

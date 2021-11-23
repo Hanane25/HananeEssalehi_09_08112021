@@ -34,7 +34,7 @@ const CustomTooltip = ({ active, payload }) => {
 /**
  * Custom X axis of BarChart
  * @param {string} xAxis      X axis data in the forme of (YYYY-MM-DD)
- * @returns {string}          X axis data formatted in the correct format (DD)
+ * @returns {string}          X axis data formatted in the correct format (D)
  */
 const formatXAxis = (xAxis) => {
     xAxis = xAxis.slice(8)
@@ -95,7 +95,7 @@ class ActivityChart extends Component {
                     </div>
                 </div>
 
-                <ResponsiveContainer width='100%' height='80%'>
+                <ResponsiveContainer width='100%' height='100%'>
 
                     <BarChart
                         width={700}
@@ -105,7 +105,7 @@ class ActivityChart extends Component {
                             top: 5,
                             right: 20,
                             left: 30,
-                            bottom: 10,
+                            bottom: 55,
                         }}
                     >
 
