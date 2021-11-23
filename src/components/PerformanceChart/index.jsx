@@ -72,7 +72,7 @@ class PerformanceChart extends Component {
                             tickLine={false}
                             stroke="white"
                             dataKey="kind"
-                            tickFormatter={(value) => this.state.kind[value}
+                            tickFormatter={(value) => this.state.kind[value]}
                         />
 
                         <Radar
